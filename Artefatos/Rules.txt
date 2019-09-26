@@ -1,0 +1,8 @@
+Esta pasta está disposta para o Analyst Team.
+
+Arquivos:
+- Cronograma
+- Casos de Teste
+- Documento de Requisitos
+- Modelos (Design)
+- Relatórios
