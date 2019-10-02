@@ -32,7 +32,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'no-param-reassign': 'off',
-    'max-len': ["error", {"code": 80}],
+    'max-len': 'off',
   
     'import/first': 'off',
     'import/named': 'error',
