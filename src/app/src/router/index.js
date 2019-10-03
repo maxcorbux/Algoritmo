@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import routes from './routes';
 import LoginCard from '../components/LoginCard.vue';
 
+
 Vue.component('login-card', LoginCard);
 
 Vue.use(VueRouter);
