@@ -1,2 +1,4 @@
-let express = require("express");
-let consign = require("consign");
+let app = require("./config/custom-express")();
+app.listen(3000, function() {
+    console.log("OK");
+});
