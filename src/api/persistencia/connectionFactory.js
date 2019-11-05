@@ -6,7 +6,7 @@ client.connect(err => {
         console.log(err)
     } else {
         const collection = client.db("test").collection("devices");
-        console.log("Conectado!!!!!!!!!!!")
+        console.log("Conectado!!!!!!!!!!!");
         client.close();
     }
 });

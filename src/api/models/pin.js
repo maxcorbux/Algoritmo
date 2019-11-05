@@ -5,6 +5,6 @@ module.exports = app => {
                 { local: "UFMS" },
                 { local: "ASdasdasd" },
             ]);
-        }
+        }s
     };
 };
