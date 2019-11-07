@@ -18,6 +18,6 @@ module.exports = app => {
             type: String,
             require: true
         }
-    })
-    return mongoose.model("Address", schema)
+    });
+    return mongoose.model("Address", schema);
 }

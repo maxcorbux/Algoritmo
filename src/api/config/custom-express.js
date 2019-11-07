@@ -1,7 +1,5 @@
 let express = require("express");
 let consign = require("consign");
-let mongodb = require("mongodb");
-let mongoose = require("mongoose");
 
 module.exports = function() {
     let app = express();

@@ -33,10 +33,12 @@ module.exports = app => {
         },
         user: {
             type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
             require: true
         },
         address: {
             type: mongoose.Schema.Types.ObjectId,
+            ref: "Address",
             require: true
         }
     });

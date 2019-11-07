@@ -31,7 +31,8 @@ module.exports = app => {
             type: Date
         },
         pin: {
-            type: [mongoose.Schema.Types.ObjectId]
+            type: [mongoose.Schema.Types.ObjectId],
+            ref: "Pin"
         }
     })
     return mongoose.model("User", schema)
