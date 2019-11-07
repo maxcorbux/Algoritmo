@@ -1,8 +1,8 @@
 module.exports = app => {
-    let Pin = app.models.pin;
+    let Address = app.models.address;
     let controller = {};
-    controller.listapins = function(req, res) {
-        let promise = Pin.find().exec()
+    controller.listaAddress = function(req, res) {
+        let promise = Address.find().exec()
             .then(() => {
                 res.json()
             }, erro => {
@@ -10,20 +10,20 @@ module.exports = app => {
                 res.status(500).json(erro)
             })
     }
-    controller.obtempin = function(req, res) {
+    controller.obtemAddress = function(req, res) {
         let _id = req.params.id;
-        Pin.findById(_id).exec()
-            .then(pin => {
-                if (!pin) throw new Error("Pin não encontrador!")
-                res.json(pin);
+        Address.findById(_id).exec()
+            .then(address => {
+                if (!address) throw new Error("Endereço não encontrador!")
+                res.json(address);
             }, erro => {
                 console.log(erro);
                 res.status(404).json(erro)
             });
     }
-    controller.removepin = function(req, res) {
+    controller.removeAddress = function(req, res) {
         let _id = req.params.id;
-        Pin.findByIdAndRemove(_id).exec()
+        Address.findByIdAndRemove(_id).exec()
             .then(
                 () => {
                     res.status(202).end()
@@ -33,21 +33,21 @@ module.exports = app => {
                 }
             )
     }
-    controller.updatepin = function(req, res) {
+    controller.updateAddress = function(req, res) {
         let _id = req.body.id;
         if (_id) {
-            Pin.findByIdAndUpdate(_id, req.body).exec()
+            Address.findByIdAndUpdate(_id, req.body).exec()
                 .then(
-                    (pin) => { res.json(pin) },
+                    (user) => { res.json(user) },
                     (erro) => {
                         console.log(erro);
                         res.status(500).json(erro)
                     }
                 )
         } else {
-            Pin.create(req.body).exec()
+            Address.create(req.body).exec()
                 .then(
-                    function(pin) { res.status(201).json(pin) },
+                    function(address) { res.status(201).json(address) },
                     function(erro) {
                         console.log(erro),
                             res.status(500).json(erro)

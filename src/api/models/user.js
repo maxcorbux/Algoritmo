@@ -29,6 +29,9 @@ module.exports = app => {
         },
         registrationDate: {
             type: Date
+        },
+        pin: {
+            type: [mongoose.Schema.Types.ObjectId]
         }
     })
     return mongoose.model("User", schema)

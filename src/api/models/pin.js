@@ -32,7 +32,12 @@ module.exports = app => {
             type: [String]
         },
         user: {
-            type: mongoose.Schema.Types.ObjectId
+            type: mongoose.Schema.Types.ObjectId,
+            require: true
+        },
+        address: {
+            type: mongoose.Schema.Types.ObjectId,
+            require: true
         }
     });
     return mongoose.model("Pin", schema);
