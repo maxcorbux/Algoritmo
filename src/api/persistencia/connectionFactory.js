@@ -1,12 +1,21 @@
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://root:123teste123@teste-j0o3k.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-    if (err) {
-        console.log(err)
-    } else {
-        const collection = client.db("test").collection("devices");
-        console.log("Conectado!!!!!!!!!!!");
-        client.close();
-    }
-});
+let mongoose = require("mongoose");
+mongoose.set("debug", true);
+
+module.exports = function(uri) {
+    mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+    mongoose.connection.on("connected", () => {
+        console.log("Conectado em " + uri);
+    });
+    mongoose.connection.on("disconnected", () => {
+        console.log("Desconectado de " + uri)
+    });
+    mongoose.connection.on("error", (erro) => {
+        console.log(erro);
+    });
+    process.on("SIGINT", () => {
+        mongoose.connection.close(() => {
+            console.log("Mongoose, desconectado!")
+        });
+        process.exit(0);
+    });
+}

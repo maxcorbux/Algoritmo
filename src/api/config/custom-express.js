@@ -1,6 +1,7 @@
 let express = require("express");
 let consign = require("consign");
 let mongodb = require("mongodb");
+let mongoose = require("mongoose");
 
 module.exports = function() {
     let app = express();
@@ -8,7 +9,6 @@ module.exports = function() {
         .include("models")
         .then('rotas')
         .then('libs')
-        .then('persistencia')
         .into(app);
 
     return app;
