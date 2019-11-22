@@ -6,9 +6,6 @@ module.exports = app => {
             type: String,
             require: true
         },
-        email: {
-            type: String
-        },
         phone: {
             type: String
         },
