@@ -42,5 +42,6 @@ module.exports = app => {
             require: true
         }
     });
+    //Colocar coordenadas
     return mongoose.model("Pin", schema);
 };
