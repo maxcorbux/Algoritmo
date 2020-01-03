@@ -31,7 +31,7 @@ module.exports = app => {
             type: Date
         },
         pin: {
-            type: [mongoose.Schema.Types.ObjectId],
+            type: [String],
             ref: "Pin"
         }
     })
