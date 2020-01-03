@@ -6,9 +6,6 @@ module.exports = app => {
             type: String,
             require: true
         },
-        email: {
-            type: String
-        },
         phone: {
             type: String
         },
@@ -37,5 +34,6 @@ module.exports = app => {
             require: true
         }
     });
+    //Colocar coordenadas
     return mongoose.model("Pin", schema);
 };
