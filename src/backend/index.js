@@ -6,6 +6,7 @@ const mongosee = null
 app.db = db
 
 consign()
+    .then('./api/validation.js')
     .then('./config/middlewares.js')
     .then('./api')
     .then("./config/routes.js")
