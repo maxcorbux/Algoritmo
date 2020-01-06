@@ -1,10 +1,14 @@
 const app = require("express")()
 const consign = require("consign")
-const db = null
+const db = require('./config/db')
 const mongosee = null
 
+app.db = db
+
 consign()
-    .then("./config")
+    .then('./config/middlewares.js')
+    .then('./api')
+    .then("./config/routes.js")
     .into(app)
 
 app.listen(4000, () => {

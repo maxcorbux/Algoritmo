@@ -1,5 +1,4 @@
 module.exports = app => {
-    app.get("/users", (req, res) => {
-        res.status(200).send("OK")
-    })
+    app.route('/users')
+        .get(app.api.user.save)
 }
