@@ -3,6 +3,7 @@ exports.up = function(knex) {
         table.increments('id');
         table.string("firstName").notNull()
         table.string('lastName').notNull()
+        table.string('password').notNull()
         table.string('email').notNull()
         table.boolean('isValid').notNull().defaultTo(false)
         table.boolean('isAdmin').notNull().defaultTo(false)
