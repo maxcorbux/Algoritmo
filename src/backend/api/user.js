@@ -57,5 +57,13 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
-    return { save, get }
+    const getById = (req, res) => {
+        app.db('users')
+            .select('firstName', 'lastName', 'email', 'isValid')
+            .where({ id: req.params.id })
+            .then(user => res.json(user))
+            .catch(err => res.status(500).send(err))
+    }
+
+    return { save, get, getById }
 }
