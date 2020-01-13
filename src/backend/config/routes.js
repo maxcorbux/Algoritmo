@@ -13,5 +13,14 @@ module.exports = app => {
 
     app.route('/categories/:id')
         .delete(app.api.category.remove)
+        
+    app.route('/addresses/')
+        .post(app.api.address.save)
+        .get(app.api.address.get)
+
+    app.route('/addresses/:id')
+        .delete(app.api.address.remove)
+    
+
 
 }

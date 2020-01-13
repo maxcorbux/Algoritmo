@@ -47,7 +47,6 @@ module.exports = app => {
         try {
             existsOrError(req.params.id, "Código da Categoria não infomado.")
 
-            const users = await app.db('users')
                 .where({ categoryId: req.params.id })
             notExistsOrError(users, "Existe um usuário com essa categoria.")
 
