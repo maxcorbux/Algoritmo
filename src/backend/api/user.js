@@ -52,7 +52,7 @@ module.exports = app => {
 
     const get = (req, res) => {
         app.db('users')
-            .select('id', 'fistName', 'lastName', 'email', 'isValid')
+            .select('id', 'firstName', 'lastName', 'email', 'isValid')
             .then(users => res.json(users))
             .catch(err => res.status(500).send(err))
     }

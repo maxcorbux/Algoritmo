@@ -51,5 +51,9 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
+    const getByUser =(req, res) => {
+        
+    }
+
     return {get, save, remove}
 }

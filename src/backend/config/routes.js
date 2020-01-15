@@ -1,26 +1,40 @@
+const admin = require("./admin.js")
+
+
 module.exports = app => {
+    app.post('/signup', app.api.user.save)
+    app.post('/signin', app.api.auth.signin)
+    app.post('/validateToken', app.api.auth.validateToken)
+
+
     app.route('/users')
+        .all(app.config.passport.authenticate())
         .get(app.api.user.get)
         .post(app.api.user.save)
 
     app.route('/users/:id')
+        .all(app.config.passport.authenticate())
         .put(app.api.user.save)
         .get(app.api.user.getById)
 
     app.route('/categories')
-        .post(app.api.category.save)
+        .all(app.config.passport.authenticate())
+        .post(admin(app.api.category.save))
         .get(app.api.category.get)
 
     app.route('/categories/:id')
-        .delete(app.api.category.remove)
-        
+        .all(app.config.passport.authenticate())
+        .delete(admin(app.api.category.remove))
+
     app.route('/addresses/')
+        .all(app.config.passport.authenticate())
         .post(app.api.address.save)
         .get(app.api.address.get)
 
     app.route('/addresses/:id')
-        .delete(app.api.address.remove)
-    
+        .all(app.config.passport.authenticate())
+        .delete(admin(app.api.address.remove))
+        .post(app.api.address.save)
 
 
 }
