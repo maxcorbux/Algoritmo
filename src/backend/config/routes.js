@@ -19,7 +19,7 @@ module.exports = app => {
 
     app.route('/categories')
         .all(app.config.passport.authenticate())
-        .post(admin(app.api.category.save))
+        .post(app.api.category.save)
         .get(app.api.category.get)
 
     app.route('/categories/:id')
@@ -35,6 +35,18 @@ module.exports = app => {
         .all(app.config.passport.authenticate())
         .delete(admin(app.api.address.remove))
         .post(app.api.address.save)
+
+    app.route('/pins/')
+        .all(app.config.passport.authenticate())
+        .get(app.api.pins.get)
+        .post(app.api.pins.save)
+
+    app.route('/pins/:id')
+        .all(app.config.passport.authenticate())
+        .get(app.api.pins.getById)
+        .post(app.api.pins.save)
+        .delete(app.api.pins.remove)
+
 
 
 }
