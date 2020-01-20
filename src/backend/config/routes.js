@@ -16,6 +16,7 @@ module.exports = app => {
         .all(app.config.passport.authenticate())
         .put(app.api.user.save)
         .get(app.api.user.getById)
+        .delete(app.api.user.remove)
 
     app.route('/categories')
         .all(app.config.passport.authenticate())
@@ -47,6 +48,13 @@ module.exports = app => {
         .post(app.api.pins.save)
         .delete(app.api.pins.remove)
 
+    app.route('/maps/')
+        .all(app.config.passport.authenticate())
+        .get(app.api.maps.get)
+        .post(app.api.maps.save)
+        .delete(app.api.maps.remove)
 
+    app.route('/stats')
+        .get(app.api.stats.get)
 
 }
